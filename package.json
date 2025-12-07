@@ -11,6 +11,7 @@
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css,html}\""
   },
   "dependencies": {
+    "@google/genai": "^1.31.0",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-label": "^2.1.8",
     "@radix-ui/react-select": "^2.2.6",
