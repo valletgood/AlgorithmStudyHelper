@@ -2,6 +2,8 @@ import { Switch } from '@/components/ui/switch';
 import { Textarea } from '@/components/ui/textarea';
 
 interface Props {
+  problemNumber: string;
+  setProblemNumber: (problemNumber: string) => void;
   input: string;
   setInput: (input: string) => void;
   output: string;
@@ -11,6 +13,8 @@ interface Props {
 }
 
 export default function SideBar({
+  problemNumber,
+  setProblemNumber,
   input,
   setInput,
   output,
@@ -29,6 +33,34 @@ export default function SideBar({
           <span className="text-sm font-medium text-[#c9d1d9]">AI 연동</span>
         </div>
         <Switch checked={isAIEnabled} onCheckedChange={setIsAIEnabled} />
+      </div>
+
+      {/* 문제 번호 입력 영역 */}
+      <div className="flex flex-col gap-2">
+        <label className="flex items-center gap-2 text-sm font-semibold text-[#f78166]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
+            <path d="M8 11h8" />
+            <path d="M8 7h6" />
+          </svg>
+          문제 번호
+        </label>
+        <input
+          type="text"
+          value={problemNumber}
+          onChange={(e) => setProblemNumber(e.target.value)}
+          placeholder="예: 1000, 1001..."
+          className="rounded-md border border-[#30363d] bg-[#0d1117] px-3 py-2 font-mono text-sm text-[#c9d1d9] placeholder:text-[#484f58] outline-none transition-colors focus:border-[#58a6ff] focus:ring-1 focus:ring-[#58a6ff]/20"
+        />
       </div>
 
       {/* 입력 영역 */}
